@@ -395,6 +395,17 @@
             _request('DELETE', repoPath, options, cb);
          };
 
+
+         this.listMilestones = function(options, cb) {
+           _request('GET', repoPath + '/milestones', options, function(err, milestones) {
+             if (err) {
+               return cb(err);
+             }
+
+             cb(null, milestones);
+           });
+         };
+
          // List all tags of a repository
          // -------
 
